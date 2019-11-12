@@ -12,14 +12,10 @@ public class Fila {
         if(inicio == null && fim == null){
             System.out.println("\nFila vazia, inserindo o primeiro aluno");
             inicio = aluno;
-
-        }else if(inicio != null && fim == null){
-            System.out.println("\nA Fila já contém um aluno, inserindo o primeiro aluno");
-            inicio.setProximo(aluno);
             fim = aluno;
 
-        }else{
-            System.out.println("\nA Fila já contem mais de um aluno, inserindo o primeiro aluno");
+        } else{
+            System.out.println("\nA Fila já contem um ou mais alunos, inserindo aluno");
             fim.setProximo(aluno);
             fim = aluno;
 
@@ -27,7 +23,16 @@ public class Fila {
     }
 
     public void exibirAlunoInicio(){
-        System.out.println("\nAluno no início: " + inicio.getNome());
+        if (inicio == null) {
+            System.out.println("Não há alunos na fila");
+            return;
+        }
+        System.out.println("O aluno é: "+
+                inicio.getNome() +
+                " matrícula: " +
+                inicio.getMatricula()+
+                " com CR: " +
+                inicio.getCr());
     }
 
     public void removerPrimeiroAluno(){
